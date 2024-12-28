@@ -22,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/items')
+      .get('${process.env.REACT_APP_API_URL}/api/items')
       .then((response) => {
         setItems(response.data);
         setFilteredItems(response.data);
@@ -31,7 +31,7 @@ const App = () => {
 
     if (token) {
       axios
-        .get('http://localhost:5000/api/userRole', {
+        .get('${process.env.REACT_APP_API_URL}/api/userRole', {
           headers: { Authorization: token },
         })
         .then((response) => {
