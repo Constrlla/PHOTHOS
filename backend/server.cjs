@@ -16,7 +16,12 @@ app.use(express.urlencoded({ extended: true })); // For form submissions
 app.use(express.static(__dirname)); // Serve static files
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true,
+}).catch(error => console.error("MongoDB connection error:", error));
+
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('MongoDB connected successfully');
