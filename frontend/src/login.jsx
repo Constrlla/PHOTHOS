@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState(''); 
   const [error, setError] = useState('');       
   const [token, setToken] = useState('');
+  const apiUrl = process.env.REACT_APP_API_URL;
   const navigate = useNavigate(); // Hook for navigation
 
  
@@ -18,7 +19,7 @@ const Login = () => {
     e.preventDefault(); 
     try {
 
-      const response = await axios.post('${process.env.REACT_APP_API_URL}/api/login', { username, password });
+      const response = await axios.post('${apiUrl}/api/items`', { username, password });
 
       setError('');
       console.log('Login successful');
