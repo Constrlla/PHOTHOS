@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault(); 
     try {
 
-      const response = await axios.post('${apiUrl}/api/items`', { username, password });
+      const response = await axios.post(`${apiUrl}/api/items`, { username, password });
 
       setError('');
       console.log('Login successful');
