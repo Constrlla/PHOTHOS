@@ -22,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get('${process.env.REACT_APP_API_URL}/api/items')
+      .get('https://phothos-web-service.onrender.com/api/items')
       .then((response) => {
         setItems(response.data);
         setFilteredItems(response.data);
@@ -31,7 +31,7 @@ const App = () => {
 
     if (token) {
       axios
-        .get('${process.env.REACT_APP_API_URL}/api/userRole', {
+        .get('https://phothos-web-service.onrender.com/api/userRole', {
           headers: { Authorization: token },
         })
         .then((response) => {
