@@ -22,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get('https://phothos-web-service.onrender.com/api/items')
+      .get('${process.env.REACT_APP_API_URL}/api/items')
       .then((response) => {
         setItems(response.data);
         setFilteredItems(response.data);
