@@ -10,7 +10,6 @@ const Login = () => {
   const [password, setPassword] = useState(''); 
   const [error, setError] = useState('');       
   const [token, setToken] = useState('');
-  const apiUrl = 'https://phothos-web-service.onrender.com';
   const navigate = useNavigate(); // Hook for navigation
 
  
@@ -19,7 +18,7 @@ const Login = () => {
     e.preventDefault(); 
     try {
 
-      const response = await axios.post(`${apiUrl}/api/items`, { username, password });
+      const response = await axios.post(`https://phothos-web-service.onrender.com/api/items`, { username, password });
 
       setError('');
       console.log('Login successful');
