@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState(''); 
   const [error, setError] = useState('');       
   const [token, setToken] = useState('');
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = 'https://phothos-web-service.onrender.com';
   const navigate = useNavigate(); // Hook for navigation
 
  
