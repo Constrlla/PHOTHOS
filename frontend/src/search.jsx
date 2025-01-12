@@ -93,7 +93,7 @@ const App = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:5000/post',
+        'https://phothos-web-service.onrender.com/post',
         { content_name, link, date },
         {
           headers: { Authorization: token },
@@ -130,7 +130,7 @@ const App = () => {
     setItems((prevItems) => prevItems.filter(item => item.id !== id));
     
     try {
-      await axios.delete(`https://phothos-web-service.onrender.com${id}`);
+      await axios.delete(`https://phothos-web-service.onrender.com/api/items/${id}`);
       console.log('Activity deleted');
       window.location.reload();
     } catch (error) {
