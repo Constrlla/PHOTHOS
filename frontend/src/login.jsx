@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault(); 
     try {
 
-      const response = await axios.post(`https://phothos-web-service.onrender.com/api/items`, { username, password });
+      const response = await axios.post(`https://phothos-web-service.onrender.com/api/login`, { username, password });
 
       setError('');
       console.log('Login successful');
