@@ -102,7 +102,7 @@ const App = () => {
 
       if (response.data.success) {
         setFeedback(response.data.message);
-        const updatedItems = await axios.get('http://localhost:5000/api/items');
+        const updatedItems = await axios.get('https://phothos-web-service.onrender.com/api/items');
         setItems(updatedItems.data);
         setFilteredItems(updatedItems.data);
         e.target.reset();
@@ -130,7 +130,7 @@ const App = () => {
     setItems((prevItems) => prevItems.filter(item => item.id !== id));
     
     try {
-      await axios.delete(`http://localhost:5000/api/items/${id}`);
+      await axios.delete(`https://phothos-web-service.onrender.com${id}`);
       console.log('Activity deleted');
       window.location.reload();
     } catch (error) {
@@ -160,10 +160,10 @@ const handleEditSubmit = async (e) => {
   e.preventDefault();
   try {
     const response = await axios.put(
-      `http://localhost:5000/api/update/${editingItemId}`,
+      `https://phothos-web-service.onrender.com/api/update/${editingItemId}`,
       editData
     );
-    const updatedItems = await axios.get('http://localhost:5000/api/items');
+    const updatedItems = await axios.get('https://phothos-web-service.onrender.com/api/items');
     setItems(updatedItems.data);
     setFilteredItems(updatedItems.data);
     setEditingItemId(null);
