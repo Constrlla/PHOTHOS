@@ -163,7 +163,7 @@ const handleEditSubmit = async (e) => {
       `https://phothos-web-service.onrender.com/api/update/${editingItemId}`,
       editData
     );
-    const updatedItems = await axios.get('https://phothos-web-service.onrender.com/api/items');
+    const updatedItems = await axios.get('https://phothos-web-service.onrender.com');
     setItems(updatedItems.data);
     setFilteredItems(updatedItems.data);
     setEditingItemId(null);
@@ -194,13 +194,17 @@ const goToAboutPage = () => {
         
 
         <div className="background-image">
-          <img src={bg}></img>
+
         </div>
 
       {/* Search and Filter */}
       <div className="search-box">
 
-<h2 style={{fontSize:"30px"}}>ค้นหากิจกรรม</h2>
+<h2 style={{fontSize:"20px"}}>ค้นหากิจกรรม</h2>
+          
+
+          <div className="search-line">
+
           <i className='bx bx-search'></i>
           <input
             type="text"
@@ -219,6 +223,9 @@ const goToAboutPage = () => {
     <i className='bx bx-plus'></i>
   </button>
 )}
+
+          </div>
+         
 
 {/* Add Activity Form - visible only to admin */}
 {role === 'admin' && isMenuVisible && (
@@ -250,8 +257,12 @@ const goToAboutPage = () => {
         </table>
         <br />
         {feedback && <div className="feedback-message">{feedback}</div>}
+
+        <div className="op-container">
         <button type="submit" name="sub_btn" className='operation_btn'>ยืนยัน</button>
         <button type="reset" name="sub_rst" className='operation_btn'>รีเซ็ต</button>
+        </div>
+        
       </form>
     </div>
   </div>
@@ -297,7 +308,7 @@ const goToAboutPage = () => {
       
   {/*===================RESULT BOXES===================*/}
   <div className="results">
-  <h2 style={{ fontSize: '30px' }}>
+  <h2 style={{ fontSize: '1.5em' }}>
     <i className="bx bxs-data"></i> ผลลัพธ์สำหรับรายการที่เลือก
   </h2>
   
