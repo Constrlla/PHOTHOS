@@ -307,17 +307,18 @@ const goToAboutPage = () => {
      
       
   {/*===================RESULT BOXES===================*/}
-  <div className="results">
+ <div className="results">
   <h2 style={{ fontSize: '1.5em' }}>
     <i className="bx bxs-data"></i> ผลลัพธ์สำหรับรายการที่เลือก
   </h2>
-  
-  {filteredItems.map((item) => (
+
+  {filteredItems.map((item, index) => (
     <div className="result-box" key={item._id}>
       {editingItemId === item._id ? (
         // Form for editing
         <form onSubmit={handleEditSubmit} className="edit-form">
           <div className="image">
+            <span>{index + 1}</span> {/* Display the result number */}
             <img src={logo} alt="activity" />
           </div>
           <div className="edit-input">
@@ -353,7 +354,6 @@ const goToAboutPage = () => {
               className="edit-input-field"
             />
           </div>
-          
           <button type="submit" className="save-button">บันทึก</button>
           <button
             type="button"
@@ -366,11 +366,9 @@ const goToAboutPage = () => {
       ) : (
         // Display for non-editable items
         <>
-  
-        <div className='image'>
-          <img src={logo}></img>
-        </div>
-        <div class='break'></div>
+          <div className="image">
+            <span>{index + 1}</span> {/* Display the result number */}
+          </div>
           <div className="result-info">
             <p>
               <b>{item.name}</b>
@@ -400,7 +398,7 @@ const goToAboutPage = () => {
       )}
     </div>
   ))}
-</div>  
+</div>
 
 
 </div>
