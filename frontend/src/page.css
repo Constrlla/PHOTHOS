@@ -1,6 +1,7 @@
-    *{
-        font-family: Anakotmai Thin;
+   *{
+        font-family: Kanit;
         box-sizing: border-box;
+        font-weight: normal;
     }
 
     *::-webkit-scrollbar
@@ -26,13 +27,17 @@
     }
 
     @media (max-width: 768px) {
+
+
+
+        .rating-form iframe{
+            width: 100vw;
+        }
+
         body {
             font-size: 14px;
         }
 
-    .result-info{
-
-    }
 
     .result-info p{
         justify-content: start;
@@ -69,6 +74,8 @@
         padding: 10px;
     }
 
+    
+
 
         .form-box td{
             font-size: 10px;
@@ -95,6 +102,7 @@
 
 
         .form-container {
+            width: 100vw;
             flex-direction: column;
             margin-bottom: 2rem;
         }
@@ -106,7 +114,6 @@
         }
 
         .rating-form {
-            width: 100%;
             padding: 15px;
             margin-bottom: 1rem;
         }
@@ -117,10 +124,8 @@
             margin-left: 0;
         }
 
-        .about-session,
-        .paragraph-1 {
+        .about-session{
             padding: 1em;
-            font-size: clamp(10px, 40%, 16px);
         }
 
         .about-header {
@@ -132,6 +137,8 @@
             flex-direction: column;
             padding: 10px;
             align-items: center;
+
+
         }
 
         .header-end {
@@ -203,13 +210,12 @@
         position: absolute;
         top: 0;
         z-index: -0.5;
-        filter: blur(5px);
         left: 0;
         width: 100%;
         height: 105vh;
         background-repeat: no-repeat;
         background-size: cover;
-        background-image: url('image/bg2.jpg');
+        background-image: url('image/bg3.png');
         box-shadow: 0 0 0 50vh black;
     }
 
@@ -300,7 +306,10 @@
     .purposes{
         line-height: 2rem;
         font-size: .5em;
-        font-weight: 200;
+    }
+
+    .purposes ol li{
+        font-weight: 300;
     }
 
     .about-session{
@@ -322,12 +331,11 @@
         padding: 2em;
         text-indent: 1em;
         border-radius: 30px;
-        font-size: .6em;
+        font-size: .425em;
         line-height: 1.3em;
         word-spacing: .1rem;
         margin-bottom: 2rem;
-        font-family:Cloud;
-        font-weight: 100;
+        font-weight: 200;
     }
 
     .form-title h2{
@@ -335,8 +343,8 @@
     }
 
     .form-frame{
-        width: 25rem;
-        height: 30em;
+        width: 50vw;
+        height: 40vh; /* Reduce height on large screens for better layout */
     }
 
     .about-image-container{
@@ -372,16 +380,8 @@
         font-size: 4em;
         font-weight: bold;
         text-shadow: white 2px 2px 40px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
-    .vignette{
-        position: absolute;
-        background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,0.75) 100%);
-        z-index: -0.5;
-        width: 100%;
-        height: 100vh;
-    }
 
     header{
         z-index: 5;
@@ -398,6 +398,12 @@
     header div{
         display: flex;
         align-items: center;
+        
+        
+    }
+
+    header div h1{
+        font-family: Audiowide;
     }
 
     header img{
@@ -410,9 +416,8 @@
     }
 
     .header-end button{
-        margin-left: 2rem;
+        margin-left: 1.5em;
         height: 3rem;
-        font-size:1.2em;
         border-radius: 4px;
         width: 8rem;
         background:rgb(0, 0, 73);
@@ -510,10 +515,6 @@
 
     .login-form  h2 {
         color:white;
-    }
-
-    h1{
-        font-family: Audiowide;
     }
 
     .feedback-message {
@@ -771,7 +772,6 @@
         padding:5px 10px;
         transition: 100ms all ease;
         cursor: pointer;
-        font-weight: bold;
     }
 
     .sort-button:hover{
@@ -808,12 +808,18 @@
         padding:25px 2rem;
     }
 
-    .image img{
+    .image span{
         width: 100px;
         height: 100px;
         padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(38, 76, 182);
+        color: rgb(255, 255, 255);
+        font-size: 3em;
+        font-family: Saira Stencil One;
         border-radius: 50%;
-        box-shadow: 1px 1px 10px rgb(0, 0, 0);
         margin-right: 2rem;
     }
 
@@ -871,5 +877,5 @@
     }
 
     footer h1{
-        font-family: Anakotmai;
+        font-family: Kanit;
     }
