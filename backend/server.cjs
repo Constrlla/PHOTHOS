@@ -57,18 +57,18 @@ app.post('/api/login', async (req, res) => {
   try {
     // Check user existence
     const user = await User.findOne({ username });
-    if (!user) return res.status(400).json({ error: 'User not found' });
+    if (!user) return res.status(400).json({ error: 'ตรวจไม่พบผู้ใช้' });
 
     // Verify password
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ error: 'Invalid credentials' });
+    if (!isMatch) return res.status(400).json({ error: 'รหัสผ่านผิด ลองใหม่อีกครั้ง' });
 
     // Generate JWT
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.json({ token });
   } catch (error) {
     console.error('Error in /api/login:', error);
-    res.status(500).json({ error: 'Server error' });
+    res.status(500).json({ error: 'เกิดข้อผิดพลาดในเซอร์เวอร์' });
   }
 });
 
@@ -76,7 +76,7 @@ const authenticate = async (req, res, next) => {
   const token = req.headers['authorization'];
 
   if (!token) {
-    return res.status(403).json({ error: 'Access denied' });
+    return res.status(403).json({ error: 'การเข้าถึงถูกปฏิเสธ' });
   }
 
   try {
@@ -84,7 +84,7 @@ const authenticate = async (req, res, next) => {
     req.user = decoded;
     next();
   } catch (error) {
-    return res.status(401).json({ error: 'Invalid token' });
+    return res.status(401).json({ error: 'ตรวจไม่พบ token' });
   }
 };
 
@@ -92,10 +92,10 @@ const authenticate = async (req, res, next) => {
 app.get('/api/userRole', authenticate, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
-    if (!user) return res.status(404).json({ error: 'User not found' });
+    if (!user) return res.status(404).json({ error: 'ตรวจไม่พบผู้ใช้' });
     res.json({ role: user.role }); // Return the user's role
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    res.status(500).json({ error: 'เซอร์เวอร์เกิดข้อผิดพลาด' });
   }
 });
 
