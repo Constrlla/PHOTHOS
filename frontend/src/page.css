@@ -3,7 +3,7 @@
         box-sizing: border-box;
         font-weight: normal;
     }
-
+  
     *::-webkit-scrollbar
     {
         width: 10px;
@@ -644,12 +644,11 @@
         line-height: 2px;
     }
 
-    .data-addition-button:hover{
-        background-color: rgb(192, 141, 0); 
-        cursor: pointer;
-        transform: rotate(45deg);
-        border-radius: 15%;
+    .data-addition-button:active {
+        transform: rotate(0deg); 
+        background-color: rgb(212, 156, 1); 
     }
+
 
     .data-addition{
         display: flex;
