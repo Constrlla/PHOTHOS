@@ -163,7 +163,7 @@ const handleEditSubmit = async (e) => {
       `https://phothos-web-service.onrender.com/api/update/${editingItemId}`,
       editData
     );
-    const updatedItems = await axios.get('https://phothos-web-service.onrender.com');
+    const updatedItems = await axios.get('https://phothos-web-service.onrender.com/api/items');
     setItems(updatedItems.data);
     setFilteredItems(updatedItems.data);
     setEditingItemId(null);
