@@ -319,7 +319,6 @@ const goToAboutPage = () => {
         <form onSubmit={handleEditSubmit} className="edit-form">
           <div className="image">
             <span>{index + 1}</span> {/* Display the result number */}
-            <img src={logo} alt="activity" />
           </div>
           <div className="edit-input">
             <label htmlFor="name">ชื่อ</label>
