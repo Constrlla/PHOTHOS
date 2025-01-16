@@ -335,6 +335,8 @@
         line-height: 1.3em;
         word-spacing: .1rem;
         margin-bottom: 2rem;
+        text-align:justify;
+        text-justify:auto;
         font-weight: 200;
     }
 
