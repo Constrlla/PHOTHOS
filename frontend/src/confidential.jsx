@@ -18,7 +18,7 @@ function SecretCode() {
     e.preventDefault(); 
     try {
 
-      const response = await axios.post('http://localhost:5000/api/login', { username, password });
+      const response = await axios.post('https://phothos-web-service.onrender.com/api/login', { username, password });
 
       setError('');
       console.log('Login successful');
