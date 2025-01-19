@@ -197,11 +197,6 @@ const goToAboutPage = () => {
 
               </div>
         </header>
-        
-
-        <div className="background-image">
-
-        </div>
 
       {/* Search and Filter */}
       <div className="search-box">
