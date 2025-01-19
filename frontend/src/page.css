@@ -229,6 +229,7 @@
         border:1px solid white;
         padding: 3rem 0;
         margin:1rem 0;
+	width: 20rem;
     }
 
     .feature-logo i{
@@ -303,7 +304,7 @@
         color:white;
         font-size: 1.15vw;
         text-align: justify;
-        font-family: Cloud;
+        font-weight: 200;
         word-spacing: -5px;
     }
     
