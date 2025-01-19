@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Login from './login'; // login page
 import MainPage from './search'; // search page
 import About from './about';
+import Intro from './introduction';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,15 +25,11 @@ const App = () => {
     return <div>Loading...</div>;
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    setIsAuthenticated(false);
-  };
 
   return (
     <Routes>
          {/* Public route for Login */}
-      <Route path="/" element={isAuthenticated ? <Navigate to="/app" /> : <Login onLogin={() => setIsAuthenticated(true)} />} />
+      <Route path="/" element={isAuthenticated ? <Navigate to="/app" /> : <Intro onLogin={() => setIsAuthenticated(true)} />} />
       
       {/* Private routes */}
       <Route path="/app" element={isAuthenticated ? <MainPage /> : <Navigate to="/" state={{ from: location }} />} />
