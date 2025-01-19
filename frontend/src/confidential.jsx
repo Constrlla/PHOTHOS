@@ -73,9 +73,7 @@ function SecretCode() {
         <div className="header-end">(ล็อกอินเข้าสู่ระบบผู้ดูแล)</div>
       </header>
       <div className="vignette"></div>
-      <div className="background-image">
-          <img src={bg}></img>
-        </div>  
+
       <div className="login-form">
         <form onSubmit={handleLogin}>
           <h2>เข้าสู่ระบบ</h2>
