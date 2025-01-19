@@ -16,7 +16,13 @@ app.use(express.urlencoded({ extended: true })); // For form submissions
 app.use(express.static(__dirname)); // Serve static files
 
 // MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/school');
+console.log('MongoDB URI:', process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true,
+}).catch(error => console.error("MongoDB connection error:", error));
+
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('MongoDB connected successfully');
@@ -51,18 +57,21 @@ app.post('/api/login', async (req, res) => {
   try {
     // Check user existence
     const user = await User.findOne({ username });
-    if (!user) return res.status(400).json({ error: 'ไม่พบผู้ใช้' });
+    if (!user) return res.status(400).json({ error: 'User not found' });
+    if (!user) return res.status(400).json({ error: 'ตรวจไม่พบผู้ใช้' });
 
     // Verify password
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ error: 'รหัสผ่านผิดโปรดลองใหม่อีกครั้ง' });
+    if (!isMatch) return res.status(400).json({ error: 'Invalid credentials' });
+    if (!isMatch) return res.status(400).json({ error: 'รหัสผ่านผิด ลองใหม่อีกครั้ง' });
 
     // Generate JWT
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.json({ token });
   } catch (error) {
     console.error('Error in /api/login:', error);
-    res.status(500).json({ error: 'เซอร์เวอร์ประสบปัญหา' });
+    res.status(500).json({ error: 'Server error' });
+    res.status(500).json({ error: 'เกิดข้อผิดพลาดในเซอร์เวอร์' });
   }
 });
 
@@ -70,6 +79,7 @@ const authenticate = async (req, res, next) => {
   const token = req.headers['authorization'];
 
   if (!token) {
+    return res.status(403).json({ error: 'Access denied' });
     return res.status(403).json({ error: 'การเข้าถึงถูกปฏิเสธ' });
   }
 
@@ -78,7 +88,8 @@ const authenticate = async (req, res, next) => {
     req.user = decoded;
     next();
   } catch (error) {
-    return res.status(401).json({ error: 'ตรวจไม่' });
+    return res.status(401).json({ error: 'Invalid token' });
+    return res.status(401).json({ error: 'ตรวจไม่พบ token' });
   }
 };
 
@@ -87,23 +98,13 @@ app.get('/api/userRole', authenticate, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     if (!user) return res.status(404).json({ error: 'User not found' });
+    if (!user) return res.status(404).json({ error: 'ตรวจไม่พบผู้ใช้' });
     res.json({ role: user.role }); // Return the user's role
   } catch (error) {
     res.status(500).json({ error: 'Server error' });
+    res.status(500).json({ error: 'เซอร์เวอร์เกิดข้อผิดพลาด' });
   }
 });
-
-// Get activity count without authentication
-app.get('/api/activityCount', async (req, res) => {
-  try {
-    const activityCount = await Activity.countDocuments();
-    res.json({ count: activityCount });
-  } catch (error) {
-    console.error('Error fetching activity count:', error);
-    res.status(500).json({ error: 'Error fetching activity count' });
-  }
-});
-
 
 // ---- ACTIVITIES MANAGEMENT ----
 
