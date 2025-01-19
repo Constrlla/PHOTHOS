@@ -19,6 +19,12 @@ const App = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [editingItemId, setEditingItemId] = useState(null);
   const [editData, setEditData] = useState({ name: '', link: '', date: '' });
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded((prev) => !prev);
+  };
+
 
   useEffect(() => {
     axios
@@ -186,9 +192,9 @@ const goToAboutPage = () => {
             <h1>PHOTHOS</h1>
           </div>
             <div className='header-end'>
-            <button>หน้าแรก</button>
-            <button onClick={goToAboutPage}>เกี่ยวกับเรา</button>
-            <button onClick={handleLogout}>ออกจากระบบ</button>
+            <button onClick={handleLogout}>ไปหน้าแรก</button>
+            <button style={{background:'white',color:'black'}}>ค้นหา</button>
+
               </div>
         </header>
         
@@ -307,10 +313,12 @@ const goToAboutPage = () => {
      
       
   {/*===================RESULT BOXES===================*/}
- <div className="results">
+  <div className="results">
   <h2 style={{ fontSize: '1.5em' }}>
     <i className="bx bxs-data"></i> ผลลัพธ์สำหรับรายการที่เลือก
   </h2>
+
+
 
   {filteredItems.map((item, index) => (
     <div className="result-box" key={item._id}>
@@ -319,6 +327,7 @@ const goToAboutPage = () => {
         <form onSubmit={handleEditSubmit} className="edit-form">
           <div className="image">
             <span>{index + 1}</span> {/* Display the result number */}
+            <img src={logo} alt="activity" />
           </div>
           <div className="edit-input">
             <label htmlFor="name">ชื่อ</label>
@@ -330,6 +339,7 @@ const goToAboutPage = () => {
               required
               className="edit-input-field"
             />
+            
           </div>
           <div className="edit-input">
             <label htmlFor="link">ลิงค์</label>
@@ -361,6 +371,8 @@ const goToAboutPage = () => {
           >
             ยกเลิก
           </button>
+          
+          
         </form>
       ) : (
         // Display for non-editable items
@@ -400,7 +412,31 @@ const goToAboutPage = () => {
 </div>
 
 
+
 </div>
+
+<div className='formal'>
+<h2>แบบประเมินความพึงพอใจ</h2>
+<button onClick={toggleExpand} className="expand-button" >
+        {isExpanded ? 'ย่อ' : 'ขยาย'}
+      </button>
+
+      <div className="form-container">
+      {isExpanded && (
+        <div className="rating-form">
+          <a href='https://docs.google.com/forms/d/e/1FAIpQLSeFTpD0EFwnK6_B50iel5VPAz-MCPx4VsmOgEPv2NM0WuMzHA/viewform?'>หรือเปิดในแท็บใหม่</a>
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeFTpD0EFwnK6_B50iel5VPAz-MCPx4VsmOgEPv2NM0WuMzHA/viewform?embedded=true"
+            className="form-frame"
+            frameBorder="0"
+          ></iframe>
+        </div>
+      )}
+    </div>
+
+</div>
+
+
 
     {/*
     
@@ -433,7 +469,7 @@ const goToAboutPage = () => {
 
         <div>
           <h1><i className='bx bxs-check-square' ></i> ขอบคุณ</h1>
-          อาจาร์ยวัชรพล นาคทับ
+         ???
         </div>
           </div>
 
