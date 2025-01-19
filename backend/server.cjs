@@ -131,6 +131,17 @@ app.get('/api/items', async (req, res) => {
   }
 });
 
+// Get activity count without authentication
+app.get('/api/activityCount', async (req, res) => {
+  try {
+    const activityCount = await Activity.countDocuments();
+    res.json({ count: activityCount });
+  } catch (error) {
+    console.error('Error fetching activity count:', error);
+    res.status(500).json({ error: 'Error fetching activity count' });
+  }
+});
+
 // Add Activity Route (Form Submission)
 app.post('/post', authenticate, async (req, res) => {
   try {
