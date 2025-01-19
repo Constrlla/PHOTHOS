@@ -20,7 +20,7 @@ const Login = () => {
   
   const fetchActivityCount = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/activityCount', {
+      const response = await axios.get('https://phothos-web-service.onrender.com/api/activityCount', {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       setActivityCount(response.data.count); // Set the count to state
@@ -39,7 +39,7 @@ const Login = () => {
     e.preventDefault(); 
     try {
 
-      const response = await axios.post('http://localhost:5000/api/login', { username, password });
+      const response = await axios.post('https://phothos-web-service.onrender.com/api/login', { username, password });
 
       setError('');
       console.log('Login successful');
