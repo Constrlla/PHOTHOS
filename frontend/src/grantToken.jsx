@@ -8,7 +8,7 @@ const TokenButton = () => {
   // Function to generate the token (without login)
   const generateToken = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/login', {
+      const response = await axios.post('https://phothos-web-service.onrender.com/api/login', {
         username: '69420', // Mock username
         password: '6942000000', // Mock password
       });
