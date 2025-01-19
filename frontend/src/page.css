@@ -803,14 +803,7 @@
     }
 
     .background-image{
-        width: 100%;
-        position: absolute;
-        right: -8rem;
-        min-height: 100vh; /* Ensures height covers the viewport */
-        z-index: -1;
-        background-image: url('bg.jpg') no-repeat center center;
-        background-size: cover;
-        filter: blur(15px) contrast(3) brightness(1);
+
     }
 
     .background-image img{
