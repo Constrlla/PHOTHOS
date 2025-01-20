@@ -418,9 +418,9 @@ const goToAboutPage = () => {
       <div className="form-container">
       {isExpanded && (
         <div className="rating-form">
-          <a href='https://forms.gle/tutpZnWbPgH7RUJJA'>หรือเปิดในแท็บใหม่</a>
+          <a href='https://docs.google.com/forms/d/e/1FAIpQLSeqkHgK9B0KxLW8xQcGUp7mW_gs2g7VkGquo0Afm8-lTuxVsA/viewform?usp=header'>หรือเปิดในแท็บใหม่</a>
           <iframe
-            src="https://forms.gle/tutpZnWbPgH7RUJJA"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeqkHgK9B0KxLW8xQcGUp7mW_gs2g7VkGquo0Afm8-lTuxVsA/viewform?usp=header"
             className="form-frame"
             frameBorder="0"
           ></iframe>
