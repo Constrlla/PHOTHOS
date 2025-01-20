@@ -257,7 +257,7 @@ const goToAboutPage = () => {
           </tr>
         </table>
         <br />
-        {feedback && <div className="feedback-message">{feedback}</div>}
+        
 
         <div className="op-container">
         <button type="submit" name="sub_btn" className='operation_btn'>ยืนยัน</button>
@@ -311,6 +311,7 @@ const goToAboutPage = () => {
   <div className="results">
   <h2 style={{ fontSize: '1.5em' }}>
     <i className="bx bxs-data"></i> ผลลัพธ์สำหรับรายการที่เลือก
+    {feedback && <div className="feedback-message">{feedback}</div>}
   </h2>
 
 
