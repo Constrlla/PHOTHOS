@@ -567,6 +567,7 @@
 
     .result-info p{
         justify-content: start;
+	word-wrap: break-word;
         width: 100%;
     }
 
