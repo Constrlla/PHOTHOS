@@ -569,6 +569,7 @@
         justify-content: start;
 	word-wrap: break-word;
         width: 100%;
+	font-size: 3vw;
     }
 
     .break {
