@@ -463,7 +463,7 @@ const goToAboutPage = () => {
 
         <div>
           <h1><i className='bx bxs-check-square' ></i> ขอบคุณ</h1>
-         ???
+         อาจารย์วัชรพล นาคทับ
         </div>
           </div>
 
