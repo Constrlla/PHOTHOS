@@ -501,9 +501,9 @@
         <div className="form-container">
         {isExpanded && (
           <div className="rating-form">
-            <a href='https://docs.google.com/forms/d/e/1FAIpQLSeFTpD0EFwnK6_B50iel5VPAz-MCPx4VsmOgEPv2NM0WuMzHA/viewform?'>หรือเปิดในแท็บใหม่</a>
+            <a href='https://docs.google.com/forms/d/e/1FAIpQLSeqkHgK9B0KxLW8xQcGUp7mW_gs2g7VkGquo0Afm8-lTuxVsA/viewform'>หรือเปิดในแท็บใหม่</a>
             <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSeFTpD0EFwnK6_B50iel5VPAz-MCPx4VsmOgEPv2NM0WuMzHA/viewform?embedded=true"
+              src="https://docs.google.com/forms/d/e/1FAIpQLSeqkHgK9B0KxLW8xQcGUp7mW_gs2g7VkGquo0Afm8-lTuxVsA/viewform?usp=header?embedded=true"
               className="form-frame"
               frameBorder="0"
             ></iframe>
